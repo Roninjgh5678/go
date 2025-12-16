@@ -39,14 +39,17 @@ func UserRoutersInit(r *gin.Engine) {
 		userRouter.GET("/uploadFinished", controller.UserController{}.UploadFinished)
 
 		//获取所有用户信息的接口
-		userRouter.GET("/showAllUserData", controller.UserController{}.FindAllUserData)
+		userRouter.GET("/showAllUserData", controller.UserController{}.ShowAllUserData)
 
 		//增加用户数据的方法
 		userRouter.GET("/addUser", controller.UserController{}.AddUserData)
 		//删除用户数据的方法
 		userRouter.GET("/deleteUser", controller.UserController{}.DeleteUserData)
-		//增加用户数据的方法
+		//修改用户数据的方法
 		userRouter.GET("/updateUser", controller.UserController{}.UpdateUserData)
+
+		//模糊查询用户数据的方法
+		userRouter.GET("/searchUser", controller.UserController{}.SearchUserData)
 	}
 
 }

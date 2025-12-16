@@ -39,7 +39,7 @@ func (con UserController) UploadFinished(c *gin.Context) {
 }
 
 // 用户的查询数据库
-func (con UserController) FindAllUserData(c *gin.Context) {
+func (con UserController) ShowAllUserData(c *gin.Context) {
 	userList := []models.User{}
 	models.Db.Find(&userList)
 	c.JSON(http.StatusOK, map[string]any{
@@ -86,6 +86,18 @@ func (con UserController) UpdateUserData(c *gin.Context) {
 	fmt.Println(user)
 	c.JSON(http.StatusOK, map[string]any{
 		"msg": "修改数据成功",
+	})
+
+}
+
+// 更新用户信息
+func (con UserController) SearchUserData(c *gin.Context) {
+	user := []models.User{}
+	models.Db.Where("username like ?", "%名字%").Find(&user)
+
+	fmt.Println(user)
+	c.JSON(http.StatusOK, map[string]any{
+		"msg": user,
 	})
 
 }
