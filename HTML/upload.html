@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Gin文件上传</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .upload-form {
+            margin-top: 20px;
+        }
+        .file-input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #409eff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #337ecc;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #f0f9ff;
+            color: #67c23a;
+            border: 1px solid #e1f3d8;
+            display: block;
+        }
+        .error {
+            background-color: #fef0f0;
+            color: #f56c6c;
+            border: 1px solid #fbc4c4;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>文件上传</h2>
+        <!-- 表单必须指定 enctype="multipart/form-data" 才能上传文件 -->
+        <form class="upload-form" action="/user/uploadFinished" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" class="file-input" accept=".txt,.jpg,.png,.pdf">
+            <br>
+            <button type="submit" class="submit-btn">上传文件</button>
+        </form>
+        <!-- 上传结果提示 -->
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      
+    </script>
+</body>
+</html>
