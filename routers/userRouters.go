@@ -37,6 +37,16 @@ func UserRoutersInit(r *gin.Engine) {
 		userRouter.GET("/uploadIndex", controller.UserController{}.UploadIndex)
 		//用户文件上传之后的界面
 		userRouter.GET("/uploadFinished", controller.UserController{}.UploadFinished)
+
+		//获取所有用户信息的接口
+		userRouter.GET("/showAllUserData", controller.UserController{}.FindAllUserData)
+
+		//增加用户数据的方法
+		userRouter.GET("/addUser", controller.UserController{}.AddUserData)
+		//删除用户数据的方法
+		userRouter.GET("/deleteUser", controller.UserController{}.DeleteUserData)
+		//增加用户数据的方法
+		userRouter.GET("/updateUser", controller.UserController{}.UpdateUserData)
 	}
 
 }
